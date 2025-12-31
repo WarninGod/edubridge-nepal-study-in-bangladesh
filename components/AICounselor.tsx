@@ -1,19 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Loader2 } from 'lucide-react';
-import { GoogleGenAI, Chat } from "@google/genai";
 import { ChatMessage } from '../types';
 
-export const AICounselor: React.FC = () => {
+export const LiveChatCounselor: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: "Namaste! I'm your Students Helpline AI Counselor. Ask me about MBBS fees, top colleges in Bangladesh, or documentation requirements." }
+    { role: 'model', text: "Namaste! Welcome to Students Helpline Nepal. Ask me about MBBS fees, top colleges in Bangladesh, or documentation requirements." }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
   
   // Ref to store the chat session instance
-  const chatSessionRef = useRef<Chat | null>(null);
+  const chatSessionRef = useRef<any>(null);
 
   const scrollToBottom = () => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -32,33 +31,15 @@ export const AICounselor: React.FC = () => {
     setIsLoading(true);
 
     try {
-      if (!chatSessionRef.current) {
-        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-        chatSessionRef.current = ai.chats.create({
-          model: 'gemini-2.5-flash-lite-latest',
-          config: {
-            systemInstruction: `You are a helpful, trustworthy, and professional educational counselor for "Students Helpline Nepal". 
-            Your goal is to assist Nepali students and parents interested in studying in Bangladesh (MBBS, BDS, Engineering, Agriculture).
-            
-            Key Information to use:
-            - Students Helpline provides "All-in-One Packages" (admission, documentation, visa, travel).
-            - Values: Transparency, No Hidden Fees, NMC & BMDC Recognized universities.
-            - Benefits of Bangladesh: Affordable, Cultural Similarity to Nepal, High Quality clinical exposure.
-            - Target Audience: Nepali families. Be polite, respectful, and reassuring.
-            
-            If asked about specific prices, give a range but suggest contacting the office for exact quotes.
-            Keep answers concise (under 3 sentences where possible) as this is a chat widget.`,
-          },
-        });
-      }
-
-      const response = await chatSessionRef.current.sendMessage({ message: userMsg });
-      const text = response.text;
+      // Simulate chat response for demo purposes
+      // In production, connect to your backend API
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      setMessages(prev => [...prev, { role: 'model', text: text || "I apologize, I couldn't process that. Please try again." }]);
+      const response = getAutomatedResponse(userMsg);
+      setMessages(prev => [...prev, { role: 'model', text: response }]);
     } catch (error) {
-      console.error("Gemini Error:", error);
-      setMessages(prev => [...prev, { role: 'model', text: "I'm having trouble connecting to the server right now. Please try again later.", isError: true }]);
+      console.error("Chat Error:", error);
+      setMessages(prev => [...prev, { role: 'model', text: "I'm having trouble connecting right now. Please try again later or call us at +977 98510-12345.", isError: true }]);
     } finally {
       setIsLoading(false);
     }
@@ -66,6 +47,32 @@ export const AICounselor: React.FC = () => {
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') handleSend();
+  };
+
+  const getAutomatedResponse = (query: string): string => {
+    const lowerQuery = query.toLowerCase();
+    
+    if (lowerQuery.includes('fee') || lowerQuery.includes('cost') || lowerQuery.includes('price')) {
+      return "MBBS fees in Bangladesh range from NPR 35-50 lakhs for the complete course. This includes tuition for 5 years. For exact fees and payment plans, please contact our office at +977 98510-12345.";
+    }
+    
+    if (lowerQuery.includes('admission') || lowerQuery.includes('eligibility') || lowerQuery.includes('qualify')) {
+      return "For MBBS admission, you need 50% in PCB (Physics, Chemistry, Biology) for general category. We handle the complete admission process. Visit our office for a free counseling session!";
+    }
+    
+    if (lowerQuery.includes('document') || lowerQuery.includes('paper')) {
+      return "Required documents: SEE & +2 marksheets, passport, medical fitness certificate, and police clearance. Our team assists with all documentation and attestation. Call us for the complete checklist.";
+    }
+    
+    if (lowerQuery.includes('university') || lowerQuery.includes('college')) {
+      return "We partner with NMC & BMDC recognized universities like Dhaka National Medical College, Enam Medical College, and more. All are WHO-listed. Check our Universities page for details!";
+    }
+    
+    if (lowerQuery.includes('hello') || lowerQuery.includes('hi') || lowerQuery.includes('namaste')) {
+      return "Namaste! How can I help you today? Ask me about MBBS programs, fees, admission process, or documentation.";
+    }
+    
+    return "Thank you for your question! For detailed information, please call us at +977 98510-12345 or visit our office in Thapathali. Our counselors are available 9 AM - 6 PM, Sunday to Friday.";
   };
 
   return (
@@ -76,7 +83,7 @@ export const AICounselor: React.FC = () => {
         className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-lg transition-transform hover:scale-105 ${isOpen ? 'hidden' : 'flex'} bg-[#F2672E] text-white items-center gap-2`}
       >
         <MessageSquare className="w-6 h-6" />
-        <span className="font-semibold hidden sm:inline">Ask AI Counselor</span>
+        <span className="font-semibold hidden sm:inline">Live Chat Support</span>
       </button>
 
       {/* Chat Window */}
