@@ -1,0 +1,111 @@
+import React, { memo } from 'react';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+
+export const Contact: React.FC = memo(() => {
+  return (
+    <div className="bg-slate-50 py-16">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0A2647] mb-4">Start Your Journey</h2>
+          <p className="text-slate-600">Visit our office or send us a message. Your dream awaits.</p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Contact Info */}
+          <div className="space-y-8">
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+              <h3 className="text-xl font-bold text-[#0A2647] mb-6">Kathmandu Head Office</h3>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-blue-50 p-3 rounded-lg text-[#146C94]">
+                    <MapPin size={24} />
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-800">Thapathali, Nepal</p>
+                    <p className="text-slate-500">Head Office</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="bg-blue-50 p-3 rounded-lg text-[#146C94]">
+                    <Phone size={24} />
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-800">+977 98510-12345</p>
+                    <p className="text-slate-500">Available 9 AM - 6 PM</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="bg-blue-50 p-3 rounded-lg text-[#146C94]">
+                    <Mail size={24} />
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-800">admissions@edubridge.com.np</p>
+                    <p className="text-slate-500">Reply within 24 hours</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#146C94] p-8 rounded-2xl shadow-lg text-white">
+               <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                 <Clock size={20} /> Office Hours
+               </h3>
+               <div className="space-y-2">
+                 <div className="flex justify-between border-b border-white/20 pb-2">
+                   <span>Sunday - Friday</span>
+                   <span>9:30 AM - 6:00 PM</span>
+                 </div>
+                 <div className="flex justify-between pt-2">
+                   <span>Saturday</span>
+                   <span>11:00 AM - 3:00 PM</span>
+                 </div>
+               </div>
+            </div>
+          </div>
+
+          {/* Form */}
+          <div className="bg-white p-8 md:p-10 rounded-2xl shadow-lg border border-slate-100">
+            <h3 className="text-2xl font-bold text-[#0A2647] mb-6">Free Consultation</h3>
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-slate-700">Student Name</label>
+                  <input type="text" className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-[#146C94] focus:ring-1 focus:ring-[#146C94] outline-none transition-all" placeholder="Full Name" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-slate-700">Phone Number</label>
+                  <input type="tel" className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-[#146C94] focus:ring-1 focus:ring-[#146C94] outline-none transition-all" placeholder="98XXXXXXXX" />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                  <label className="text-sm font-semibold text-slate-700">Interested Course</label>
+                  <select className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-[#146C94] focus:ring-1 focus:ring-[#146C94] outline-none transition-all bg-white">
+                    <option>MBBS</option>
+                    <option>BDS (Dental)</option>
+                    <option>Engineering</option>
+                    <option>Agriculture</option>
+                  </select>
+              </div>
+
+              <div className="space-y-2">
+                  <label className="text-sm font-semibold text-slate-700">Current GPA / Percentage</label>
+                  <input type="text" className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-[#146C94] focus:ring-1 focus:ring-[#146C94] outline-none transition-all" placeholder="e.g. 3.6 GPA or 85%" />
+              </div>
+
+              <div className="space-y-2">
+                  <label className="text-sm font-semibold text-slate-700">Message (Optional)</label>
+                  <textarea className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-[#146C94] focus:ring-1 focus:ring-[#146C94] outline-none transition-all h-32 resize-none" placeholder="Tell us about your preferences..."></textarea>
+              </div>
+
+              <button className="w-full bg-[#F2672E] text-white font-bold text-lg py-4 rounded-lg hover:bg-[#d9551e] transition-all shadow-md">
+                Book Appointment
+              </button>
+              <p className="text-center text-xs text-slate-400 mt-4">We respect your privacy. No spam.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+});
