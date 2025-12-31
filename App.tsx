@@ -6,7 +6,7 @@ import { TrustBar } from './components/TrustBar';
 import { WhyBangladesh } from './components/WhyBangladesh';
 import { Packages } from './components/Packages';
 import { Contact } from './components/Contact';
-import { AICounselor as LiveChatCounselor } from './components/AICounselor';
+import { LiveChatCounselor } from './components/AICounselor';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { PageProvider, usePageContext } from './contexts/PageContext';
 import { CoursesSection } from './components/Pages/CoursesSection';
