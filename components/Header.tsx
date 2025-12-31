@@ -20,7 +20,9 @@ export const Header: React.FC = () => {
           className="flex items-center gap-3 cursor-pointer"
           onClick={() => handleNavClick('home')}
         >
-          <img src="/SHL.png" alt="SHL Logo" className="h-14 md:h-16 w-auto object-contain" />
+          <div className="h-14 md:h-16 w-14 md:w-16 bg-gradient-to-br from-[#0A2647] to-[#146C94] rounded-lg flex items-center justify-center shadow-md">
+            <span className="text-white text-2xl md:text-3xl font-bold">SHL</span>
+          </div>
           <div className="flex flex-col">
             <span className="text-xl font-bold text-[#0A2647] leading-none">Students Helpline</span>
             <span className="text-xs text-[#146C94] font-medium tracking-wide">NEPAL</span>

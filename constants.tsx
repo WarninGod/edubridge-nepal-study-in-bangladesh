@@ -102,13 +102,13 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const HERO_IMAGES = [
-  "https://future-mbbs.com/wp-content/uploads/2025/09/Copy-of-Untitled-26.png.webp",
-  "https://www.ruseducation.in/wp-content/uploads/2022/01/enam-medical-college-and-hospital.webp",
-  "https://media.licdn.com/dms/image/v2/C511BAQHIFvFJ1Q61hQ/company-background_10000/company-background_10000/0/1584420683974/bangladesh_agricultural_university_cover?e=1766869200&v=beta&t=Io4MVYEKgdl0imF8jn2R7IrZM9ORU4l-BfwKDbNQA0Q",
-  "https://scontent.fdel33-1.fna.fbcdn.net/v/t39.30808-6/488576089_1233149658817393_1085561248222875533_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=f727a1&_nc_ohc=m6vAxL98wGMQ7kNvwEgdc_H&_nc_oc=AdmRZSnZ_k-RSh9SUyEolPQKJZak2_O2QF7YwnVrDQjDgf1RcwR5OVfl6U3vRVsHDh8&_nc_zt=23&_nc_ht=scontent.fdel33-1.fna&_nc_gid=ffhrTwBMynwW0ZQrAIiTiA&oh=00_AflLrRK0yB2486gqyoPvx141oPK4WoANmtSHXjXepe6Vaw&oe=694CB861",
-  "https://www.outlooktravelmag.com/media/bangladesh-1-1611923974.profileImage.2x-jpg-webp.webp",
-  "https://cdn.britannica.com/97/189797-050-1FC0041B/Night-view-Dhaka-Bangladesh.jpg",
-  "https://cdn.britannica.com/51/148851-050-16F6ADB7/Jatiya-Sangsad-Bhaban-Dhaka-Bangl-Louis-I-1983.jpg"
+  "https://images.unsplash.com/photo-1576495199011-eb94736d05d6?w=1200&h=800&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&h=800&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1200&h=800&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1562774053-701939374585?w=1200&h=800&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1200&h=800&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&h=800&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=1200&h=800&fit=crop&q=80"
 ];
 
 export const NAV_ITEMS: { id: import('./types').Page; label: string }[] = [
